@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel Spinner - Putar Roda Keberuntungan</title>
+    <meta name="description" content="Aplikasi wheel spinner gratis dan mudah digunakan. Masukkan nama, putar roda untuk memilih pemenang acak. Kustomisasi tampilan dan bagikan roda Anda.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Wheel Spinner">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🎯</span>
+                <h1>Wheel Spinner</h1>
+            </div>
+            <p class="subtitle">Putar Roda Keberuntungan - Gratis dan Mudah Digunakan</p>
+        </header>
+
+        <main class="main-content">
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <canvas id="wheelCanvas" width="400" height="400"></canvas>
+                    <div class="wheel-pointer"></div>
+                    <button id="spinButton" class="spin-button">
+                        <span class="spin-text">PUTAR RODA</span>
+                        <span class="spin-icon">🎲</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="input-section">
+                    <h3>Masukkan Nama</h3>
+                    <div class="input-container">
+                        <textarea 
+                            id="namesInput" 
+                            placeholder="Masukkan nama-nama di sini, satu nama per baris&#10;Contoh:&#10;John Doe&#10;Jane Smith&#10;Bob Johnson"
+                            rows="8"
+                        ></textarea>
+                        <div class="input-actions">
+                            <button id="addRandomButton" class="action-button">+ Nama Acak</button>
+                            <button id="clearButton" class="action-button secondary">Hapus Semua</button>
+                        </div>
+                    </div>
+                    <div class="names-count">
+                        <span id="namesCount">0</span> nama tersedia
+                    </div>
+                </div>
+
+                <div class="customization-section">
+                    <h3>Kustomisasi</h3>
+                    <div class="customization-grid">
+                        <div class="customization-item">
+                            <label for="spinDuration">Durasi Putar (detik)</label>
+                            <input type="range" id="spinDuration" min="2" max="10" value="5" step="0.5">
+                            <span id="spinDurationValue">5</span>
+                        </div>
+                        <div class="customization-item">
+                            <label for="wheelSize">Ukuran Roda</label>
+                            <input type="range" id="wheelSize" min="300" max="500" value="400" step="50">
+                            <span id="wheelSizeValue">400</span>
+                        </div>
+                        <div class="customization-item">
+                            <label for="colorScheme">Skema Warna</label>
+                            <select id="colorScheme">
+                                <option value="default">Default</option>
+                                <option value="rainbow">Pelangi</option>
+                                <option value="pastel">Pastel</option>
+                                <option value="dark">Gelap</option>
+                                <option value="neon">Neon</option>
+                            </select>
+                        </div>
+                        <div class="customization-item">
+                            <label for="soundEnabled">Suara</label>
+                            <input type="checkbox" id="soundEnabled" checked>
+                        </div>
+                        <div class="customization-item">
+                            <label for="removeWinner">Hapus Pemenang</label>
+                            <input type="checkbox" id="removeWinner" checked>
+                            <small style="color: var(--text-secondary); font-size: 0.8rem;">Otomatis hapus pemenang dari daftar</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Riwayat Pemenang</h3>
+                    <div id="winnersList" class="winners-list">
+                        <p class="no-winners">Belum ada pemenang</p>
+                    </div>
+                    <div class="history-actions">
+                        <button id="clearHistoryButton" class="action-button secondary">Hapus Riwayat</button>
+                        <button id="restoreWinnersButton" class="action-button">Kembalikan Pemenang</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Wheel Spinner. Dibuat dengan ❤️ untuk komunitas.</p>
+            <div class="footer-links">
+                <a href="#" id="shareButton">Bagikan</a>
+                <a href="#" id="exportButton">Ekspor</a>
+                <a href="#" id="importButton">Impor</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal untuk hasil -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎉 Pemenang!</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="winnerDisplay" class="winner-display"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="spinAgainButton" class="primary-button">Putar Lagi</button>
+                <button id="closeModalButton" class="secondary-button">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="spinSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    <audio id="winSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

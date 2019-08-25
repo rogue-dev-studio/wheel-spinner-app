@@ -1,0 +1,45 @@
+{
+  "name": "wheel-spinner-app",
+  "version": "1.0.0",
+  "description": "Aplikasi wheel spinner modern dan responsif yang terinspirasi dari wheelofnames.com",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "build": "echo 'No build process needed - static files only'",
+    "deploy": "echo 'Deploy to GitHub Pages: git push origin main'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "wheel-spinner",
+    "random-picker",
+    "pwa",
+    "web-app",
+    "javascript",
+    "canvas",
+    "html5",
+    "css3"
+  ],
+  "author": "Your Name <your-email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/wheel-spinner-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/wheel-spinner-app/issues"
+  },
+  "homepage": "https://username.github.io/wheel-spinner-app",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
