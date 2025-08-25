@@ -34,6 +34,11 @@ Aplikasi wheel spinner modern dan responsif yang terinspirasi dari [wheelofnames
 - **Offline support** dengan Service Worker
 - **Modal hasil** yang menarik
 
+## 🚀 Demo
+
+Aplikasi ini dapat diakses secara online melalui GitHub Pages:
+- **Live Demo**: [https://omeans-team.github.io/wheel-spinner-app](https://omeans-team.github.io/wheel-spinner-app)
+
 ## 🚀 Cara Menggunakan
 
 ### 1. Menambahkan Nama
@@ -105,7 +110,7 @@ Aplikasi ini cocok untuk berbagai keperluan:
 ### 1. Setup Repository
 ```bash
 # Clone repository
-git clone https://github.com/username/wheel-spinner-app.git
+git clone https://github.com/omeans-team/wheel-spinner-app.git
 cd wheel-spinner-app
 
 # Add files
@@ -145,7 +150,7 @@ wheel-spinner-app/
 ### Local Development
 ```bash
 # Clone repository
-git clone https://github.com/username/wheel-spinner-app.git
+git clone https://github.com/omeans-team/wheel-spinner-app.git
 cd wheel-spinner-app
 
 # Buka dengan live server atau file://
