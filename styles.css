@@ -392,14 +392,14 @@ body {
     font-size: 0.85rem;
 }
 
-.omeans-link, .developer-link {
+.studio-link, .developer-link {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
 }
 
-.omeans-link:hover, .developer-link:hover {
+.studio-link:hover, .developer-link:hover {
     color: var(--primary-color);
     text-decoration: underline;
 }
