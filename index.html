@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheel Spinner - Putar Roda Keberuntungan</title>
-    <meta name="description" content="Aplikasi wheel spinner gratis dan mudah digunakan. Masukkan nama, putar roda untuk memilih pemenang acak. Kustomisasi tampilan dan bagikan roda Anda.">
+    <title>Wheel Spinner — spin names, pick a winner</title>
+    <meta name="description" content="Spin wheel for classrooms, giveaways, and ice breakers. Add names, spin, get a winner. No account — data stays in the browser.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <link rel="stylesheet" href="theme-fairground.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E3B23C' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0B1F33">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Wheel Spinner">
@@ -18,10 +19,10 @@
     <div class="container">
         <header class="header">
             <div class="logo">
-                <span class="logo-icon">🎯</span>
+                <i data-lucide="target" class="logo-icon" aria-hidden="true"></i>
                 <h1>Wheel Spinner</h1>
             </div>
-            <p class="subtitle">Putar Roda Keberuntungan - Gratis dan Mudah Digunakan</p>
+            <p class="subtitle">Class raffles, giveaways, or who goes next</p>
         </header>
 
         <main class="main-content">
@@ -31,7 +32,7 @@
                     <div class="wheel-pointer"></div>
                     <button id="spinButton" class="spin-button">
                         <span class="spin-text">PUTAR RODA</span>
-                        <span class="spin-icon">🎲</span>
+                        <i data-lucide="dices" class="spin-icon" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -42,7 +43,7 @@
                     <div class="input-container">
                         <textarea 
                             id="namesInput" 
-                            placeholder="Masukkan nama-nama di sini, satu nama per baris&#10;Contoh:&#10;John Doe&#10;Jane Smith&#10;Bob Johnson"
+                            placeholder="Satu nama per baris&#10;Contoh:&#10;Siti&#10;Budi&#10;Ayu"
                             rows="8"
                         ></textarea>
                         <div class="input-actions">
@@ -106,25 +107,20 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-main">
-                    <p>&copy; 2024 Wheel Spinner. Dibuat dengan ❤️ untuk komunitas.</p>
+                    <p>&copy; 2026 Rogue Dev Studio</p>
                     <div class="footer-credits">
-                        <p>Powered by <a href="https://omeans-team.github.io" target="_blank" class="omeans-link">OMEANS Team</a></p>
-                        <p>Developed by <a href="https://omeans-team.github.io" target="_blank" class="developer-link">Aris Hadisopiyan</a></p>
+                        <p><a href="https://rogue-dev-studio.github.io/" target="_blank" rel="noopener" class="studio-link">Rogue Dev Studio</a> · Aris Hadisopiyan</p>
                     </div>
                 </div>
                 <div class="footer-links">
                     <a href="#" id="shareButton" class="footer-link">Bagikan</a>
-                    <a href="#" id="exportButton" class="footer-link">Ekspor</a>
-                    <a href="#" id="importButton" class="footer-link">Impor</a>
-                    <a href="https://omeans-team.github.io" target="_blank" class="footer-link">OMEANS</a>
-                    <a href="https://omeans-team.github.io/#contact" target="_blank" class="footer-link">Kontak</a>
-                    <a href="https://github.com/omeans-team/wheel-spinner-app/blob/main/about.md" target="_blank" class="footer-link">Tentang</a>
+                    <a href="https://rogue-dev-studio.github.io/" target="_blank" rel="noopener" class="footer-link">Studio</a>
+                    <a href="https://github.com/rogue-dev-studio/wheel-spinner-app" target="_blank" rel="noopener" class="footer-link">Kode sumber</a>
                 </div>
             </div>
             <div class="footer-divider"></div>
             <div class="footer-info">
-                <p>© 2024 OMEANS Team. All rights reserved.</p>
-                <p>Lead Full-Stack Developer & Game Developer based in Indonesia</p>
+                <p>Undian acak di browser — tanpa akun</p>
             </div>
         </footer>
     </div>
@@ -133,7 +129,7 @@
     <div id="resultModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>🎉 Pemenang!</h2>
+                <h2>Pemenang!</h2>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
@@ -155,5 +151,8 @@
     </audio>
 
     <script src="script.js"></script>
+    <style>[data-lucide]{width:1.15em;height:1.15em;stroke-width:2;vertical-align:-0.2em;display:inline-block}.logo-icon{width:1.75rem;height:1.75rem}</style>
+    <script src="https://unpkg.com/lucide@0.460.0"></script>
+    <script>if(window.lucide)lucide.createIcons();</script>
 </body>
 </html>

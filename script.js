@@ -118,10 +118,10 @@ class WheelSpinner {
         const spinButton = document.getElementById('spinButton');
         if (count === 0) {
             spinButton.disabled = true;
-            spinButton.innerHTML = '<span class="spin-text">TAMBAHKAN NAMA</span><span class="spin-icon">➕</span>';
+            spinButton.innerHTML = '<span class="spin-text">TAMBAHKAN NAMA</span><i data-lucide="plus" class="spin-icon" aria-hidden="true"></i>'; if (window.lucide) lucide.createIcons();
         } else {
             spinButton.disabled = false;
-            spinButton.innerHTML = '<span class="spin-text">PUTAR RODA</span><span class="spin-icon">🎲</span>';
+            spinButton.innerHTML = '<span class="spin-text">PUTAR RODA</span><i data-lucide="dices" class="spin-icon" aria-hidden="true"></i>'; if (window.lucide) lucide.createIcons();
         }
     }
     
@@ -256,7 +256,19 @@ class WheelSpinner {
         this.ctx.font = '16px Inter';
         this.ctx.textAlign = 'center';
         this.ctx.fillText('Tambahkan nama untuk memulai', centerX, centerY - 10);
-        this.ctx.fillText('🎯', centerX, centerY + 20);
+        // center badge (no emoji)
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY + 8, 14, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#fff';
+        this.ctx.fill();
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY + 8, 8, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#E3B23C';
+        this.ctx.fill();
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY + 8, 3, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#0B1F33';
+        this.ctx.fill();
     }
     
     spin() {
@@ -265,7 +277,7 @@ class WheelSpinner {
         this.isSpinning = true;
         const spinButton = document.getElementById('spinButton');
         spinButton.disabled = true;
-        spinButton.innerHTML = '<span class="spin-text">MEMUTAR...</span><span class="spin-icon">⚡</span>';
+        spinButton.innerHTML = '<span class="spin-text">MEMUTAR...</span><i data-lucide="loader-circle" class="spin-icon" aria-hidden="true"></i>'; if (window.lucide) lucide.createIcons();
         
         // Play spin sound
         if (this.soundEnabled) {
@@ -338,7 +350,7 @@ class WheelSpinner {
         // Reset button
         const spinButton = document.getElementById('spinButton');
         spinButton.disabled = false;
-        spinButton.innerHTML = '<span class="spin-text">PUTAR RODA</span><span class="spin-icon">🎲</span>';
+        spinButton.innerHTML = '<span class="spin-text">PUTAR RODA</span><i data-lucide="dices" class="spin-icon" aria-hidden="true"></i>'; if (window.lucide) lucide.createIcons();
     }
     
     showWinnerModal(winner) {

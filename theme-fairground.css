@@ -1,0 +1,91 @@
+/* Fairground Night — wheel-spinner anti-AI theme (no purple gradient) */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #E3B23C;
+    --primary-hover: #C9982A;
+    --secondary-color: #142A42;
+    --accent-color: #E07A5F;
+    --text-primary: #F4EFE4;
+    --text-secondary: #B8C5D4;
+    --border-color: #243B55;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --border-radius: 10px;
+}
+
+body {
+    font-family: 'Source Sans 3', system-ui, sans-serif !important;
+    background:
+        radial-gradient(ellipse at 50% -10%, rgba(227, 178, 60, 0.18), transparent 50%),
+        #0B1F33 !important;
+    color: var(--text-primary) !important;
+}
+
+.header {
+    color: var(--text-primary) !important;
+}
+
+.logo h1,
+.modal-header h2,
+.controls-section h3 {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif !important;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-shadow: none !important;
+}
+
+.subtitle {
+    color: var(--text-secondary) !important;
+    opacity: 1 !important;
+}
+
+.wheel-container,
+.controls-section,
+.input-section,
+.customization-section,
+.history-section,
+.modal-content,
+.footer {
+    background: #10263C !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: none !important;
+    border-radius: var(--border-radius) !important;
+    color: var(--text-primary);
+}
+
+.spin-button,
+.primary-button {
+    background: var(--primary-color) !important;
+    color: #0B1F33 !important;
+    border: 2px solid #F4EFE4 !important;
+    border-radius: 999px !important;
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif !important;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(227, 178, 60, 0.25) !important;
+}
+
+.action-button,
+.secondary-button {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+textarea,
+input[type="range"],
+select {
+    background: #0B1F33 !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+}
+
+.footer a {
+    color: var(--primary-color);
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+}
