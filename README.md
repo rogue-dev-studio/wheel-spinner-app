@@ -1,22 +1,23 @@
 # Wheel Spinner
 
-Pick a name at random: class raffle, giveaway, or “who goes next.” Type names, hit spin, see who wins.
+Pick a name at random for raffles, classrooms, or “who goes next.”
 
-Nothing is stored on a server.
+![Screenshot](github-contents/screenshot.png)
 
-By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
+**Live demo:** [https://rogue-dev-studio.github.io/wheel-spinner-app/](https://rogue-dev-studio.github.io/wheel-spinner-app/)
 
-## Controls worth knowing
+## Highlights
 - Spin length and wheel size
 - Color schemes
-- Drop the winner from the list after a spin (optional)
-- Save/load the name list as JSON
+- Optional remove-winner + JSON save/load
 
 ## Run
-Open `index.html` in a browser or via Live Server.
+Open `index.html` locally (Live Server on port **5500**), or use the live demo above.
 
 ```bash
 git clone https://github.com/rogue-dev-studio/wheel-spinner-app.git
 ```
+
+By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
 
 MIT
